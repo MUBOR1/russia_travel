@@ -3,7 +3,7 @@
 ## Технологии
 
 - **Языки и библиотеки:**
-  - [HTML5]((https://developer.mozilla.org/ru/docs/Web/HTML)  — язык разметки для создания структуры веб-страниц.
+  - [HTML5](https://developer.mozilla.org/ru/docs/Web/HTML)  — язык разметки для создания структуры веб-страниц.
   - [CSS3](https://developer.mozilla.org/ru/docs/Web/CSS) — язык стилей для оформления веб-страниц.
   - [JavaScript (ES6+)](https://developer.mozilla.org/ru/docs/Web/JavaScript) — язык программирования для добавления интерактивности на сайте.
   - [Normalize.css](https://necolas.github.io/normalize.css/) — современная альтернатива сбросу CSS, обеспечивающая согласованность стилей в разных браузерах.
