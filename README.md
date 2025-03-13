@@ -5,7 +5,8 @@
    ```bash
 
 ## Детальная структура:
-```
+```bash
+git clone https://github.com/MUBOR1/russia_travel.git
 travel-russia/
 │── fonts/
 │   ├── fonts.css
