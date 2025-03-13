@@ -1,6 +1,6 @@
 # russia_travel
 ## Детальная структура:
-'''
+''
 travel-russia/
 │── fonts/
 │   ├── fonts.css
