@@ -2,11 +2,10 @@
 ## Установка и запуск
 
 1. **Клонируйте репозиторий:**
-   ```bash
-git clone https://github.com/MUBOR1/russia_travel.git
+   ```bash git clone https://github.com/MUBOR1/russia_travel.git
 
 2. **запуск:**
-запустите через расширение Live Server
+Запустите через расширение Live Server
 
 ## Детальная структура:
 ```
