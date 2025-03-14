@@ -414,6 +414,98 @@ function updateText(lang) {
         });
     });
 </script>
+<!-- Модальное окно -->
+<div class="modal" id="imageModal">
+    <span class="close" id="closeModal">&times;</span>
+    <div class="modal-content">
+        <img class="modal-image" id="modalImage" src="" alt="">
+        <div class="modal-description" id="modalDescription"></div>
+    </div>
+    <button class="modal-prev" id="prevButton">&#10094;</button>
+    <button class="modal-next" id="nextButton">&#10095;</button>
+</div>
+<script>
+    // Получаем элементы
+    const modal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    const modalDescription = document.getElementById('modalDescription');
+    const closeModal = document.getElementById('closeModal');
+    const prevButton = document.getElementById('prevButton');
+    const nextButton = document.getElementById('nextButton');
 
+    // Массив с данными изображений
+    const images = [
+        { src: 'images/train.jpg', alt: 'Поезд', description: 'Описание для Поезда' },
+        { src: 'images/atharva-tulsi.jpg', alt: 'Горы', description: 'Описание для Гор' },
+        { src: 'images/tuman.jpg', alt: 'Туман', description: 'Описание для Тумана' },
+        { src: 'images/sochi.jpg', alt: 'Сочи', description: 'Описание для Сочи' },
+        { src: 'images/arisa.jpg', alt: 'Лёд', description: 'Описание для Льда' },
+        { src: 'images/baikal.jpg', alt: 'Байкал', description: 'Описание для Байкала' },
+        { src: 'images/elbrus.jpg', alt: 'Эльбрус', description: 'Описание для Эльбруса' },
+        { src: 'images/kondratiev.jpg', alt: 'Знак', description: 'Описание для Знака' },
+        { src: 'images/kamchatka-1.jpg', alt: 'Камчатка', description: 'Описание для Камчатки' },
+        { src: 'images/kamchatka-2.jpg', alt: 'Камчатка', description: 'Описание для Камчатки' },
+        { src: 'images/baikal-2.jpg', alt: 'Байкал', description: 'Описание для Байкала' },
+        { src: 'images/ergaki.jpg', alt: 'Ергаки', description: 'Описание для Ергаки' }
+    ];
+
+    let currentIndex = 0;
+
+    // Функция для открытия модального окна
+    function openModal(index) {
+        currentIndex = index;
+        modalImage.src = images[currentIndex].src;
+        modalImage.alt = images[currentIndex].alt;
+        modalDescription.textContent = images[currentIndex].description;
+        modal.classList.add('show');
+    }
+
+    // Функция для закрытия модального окна
+    function closeModalFunc() {
+        modal.classList.remove('show');
+    }
+
+    // Функция для переключения на предыдущее изображение
+    function prevImage() {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        modalImage.src = images[currentIndex].src;
+        modalImage.alt = images[currentIndex].alt;
+        modalDescription.textContent = images[currentIndex].description;
+    }
+
+    // Функция для переключения на следующее изображение
+    function nextImage() {
+        currentIndex = (currentIndex + 1) % images.length;
+        modalImage.src = images[currentIndex].src;
+        modalImage.alt = images[currentIndex].alt;
+        modalDescription.textContent = images[currentIndex].description;
+    }
+
+    // Добавляем обработчики событий для изображений
+    document.querySelectorAll('.photo-grid__item').forEach((img, index) => {
+        img.addEventListener('click', () => openModal(index));
+    });
+
+    // Закрытие модального окна при клике на крестик
+    closeModal.addEventListener('click', closeModalFunc);
+
+    // Закрытие модального окна при клике вне изображения
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeModalFunc();
+        }
+    });
+
+    // Переключение изображений
+    prevButton.addEventListener('click', prevImage);
+    nextButton.addEventListener('click', nextImage);
+
+    // Закрытие модального окна при нажатии на Esc
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeModalFunc();
+        }
+    });
+</script>
 </body>
 </html>
